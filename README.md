@@ -56,24 +56,7 @@ results/                                 metrics, SQL outputs, figures, summary.
 data/README.md                           how to get the raw data
 ```
 
-## How to run
 
-**Notebook (easiest).** Open `notebooks/secom_yield_prediction.ipynb` in Google Colab and choose Runtime > Run all. It downloads the data from UCI by itself and takes about 5 minutes.
-
-**Web app on your computer.**
-
-```bash
-git clone https://github.com/<your-username>/secom-yield-prediction.git
-cd secom-yield-prediction
-pip install -r requirements.txt
-streamlit run app/streamlit_app.py
-```
-
-Then upload the raw `secom.data` file from UCI (or a CSV with the header `s001 ... s590`) to get a risk score for every lot. The saved model was trained with scikit-learn 1.6.1, so keep that version.
-
-## Limitations and next steps
-
-The test set has only 9 failures, so the results have wide uncertainty. The dataset covers about three months from one line, the sensors are anonymised, and the cost ratios are assumptions. Possible next steps are using the pattern of missing values as a feature (missingness often reflects which process step a lot went through), testing anomaly-detection models, adding drift monitoring, and repeating the analysis on a larger real manufacturing dataset.
 
 ## Data source
 
