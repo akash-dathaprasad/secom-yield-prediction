@@ -1,0 +1,183 @@
+{
+  "dataset": "UCI SECOM (real semiconductor fab data)",
+  "lots": 1567,
+  "sensors": 590,
+  "failure_rate_pct": 6.64,
+  "split": [
+    {
+      "set": "train",
+      "lots": "1096",
+      "failures": "78",
+      "failure_rate_pct": "7.12",
+      "from": "2008-07-19 11:55:00",
+      "to": "2008-09-26 02:26:00"
+    },
+    {
+      "set": "validation",
+      "lots": "235",
+      "failures": "17",
+      "failure_rate_pct": "7.23",
+      "from": "2008-09-26 03:12:00",
+      "to": "2008-10-05 18:59:00"
+    },
+    {
+      "set": "test",
+      "lots": "236",
+      "failures": "9",
+      "failure_rate_pct": "3.81",
+      "from": "2008-10-05 19:45:00",
+      "to": "2008-10-17 06:07:00"
+    }
+  ],
+  "cv_table": [
+    {
+      "model": "XGBoost (tuned)",
+      "cv_pr_auc": 0.19,
+      "cv_pr_auc_std": 0.1372,
+      "cv_roc_auc": 0.6857,
+      "cv_roc_auc_std": 0.0984
+    },
+    {
+      "model": "Random Forest",
+      "cv_pr_auc": 0.1532,
+      "cv_pr_auc_std": 0.0375,
+      "cv_roc_auc": 0.6218,
+      "cv_roc_auc_std": 0.075
+    },
+    {
+      "model": "XGBoost",
+      "cv_pr_auc": 0.1296,
+      "cv_pr_auc_std": 0.0553,
+      "cv_roc_auc": 0.6402,
+      "cv_roc_auc_std": 0.083
+    },
+    {
+      "model": "Logistic Regression",
+      "cv_pr_auc": 0.1139,
+      "cv_pr_auc_std": 0.112,
+      "cv_roc_auc": 0.4858,
+      "cv_roc_auc_std": 0.1545
+    },
+    {
+      "model": "Random guess (reference)",
+      "cv_pr_auc": 0.0712,
+      "cv_pr_auc_std": 0.0,
+      "cv_roc_auc": 0.5,
+      "cv_roc_auc_std": 0.0
+    }
+  ],
+  "selected_model": "XGBoost (tuned)",
+  "best_params": {
+    "select__k": 80,
+    "model__subsample": 0.6,
+    "model__n_estimators": 100,
+    "model__min_child_weight": 1,
+    "model__max_depth": 4,
+    "model__learning_rate": 0.05,
+    "model__colsample_bytree": 0.8
+  },
+  "test_metrics": {
+    "roc_auc": 0.7048,
+    "roc_auc_95ci": [
+      0.6,
+      0.807
+    ],
+    "pr_auc": 0.0661,
+    "pr_auc_95ci": [
+      0.034,
+      0.135
+    ],
+    "random_guess_pr_auc": 0.0381,
+    "test_lots": 236,
+    "test_failures": 9
+  },
+  "gains_table": [
+    {
+      "inspect_top_pct_of_lots": 5,
+      "lots_inspected": 12,
+      "failures_caught": 0,
+      "share_of_failures_caught_pct": 0.0,
+      "lift_vs_random": 0.0
+    },
+    {
+      "inspect_top_pct_of_lots": 10,
+      "lots_inspected": 24,
+      "failures_caught": 1,
+      "share_of_failures_caught_pct": 11.1,
+      "lift_vs_random": 1.11
+    },
+    {
+      "inspect_top_pct_of_lots": 20,
+      "lots_inspected": 48,
+      "failures_caught": 2,
+      "share_of_failures_caught_pct": 22.2,
+      "lift_vs_random": 1.11
+    },
+    {
+      "inspect_top_pct_of_lots": 30,
+      "lots_inspected": 71,
+      "failures_caught": 4,
+      "share_of_failures_caught_pct": 44.4,
+      "lift_vs_random": 1.48
+    },
+    {
+      "inspect_top_pct_of_lots": 50,
+      "lots_inspected": 118,
+      "failures_caught": 9,
+      "share_of_failures_caught_pct": 100.0,
+      "lift_vs_random": 2.0
+    }
+  ],
+  "cost_table": [
+    {
+      "missed_failure_cost_x": 5,
+      "lots_flagged": 0,
+      "failures_caught": 0,
+      "missed_failures": 9,
+      "model_cost": 45,
+      "inspect_nothing_cost": 45,
+      "inspect_all_cost": 227,
+      "saving_vs_best_simple_policy_pct": 0.0
+    },
+    {
+      "missed_failure_cost_x": 10,
+      "lots_flagged": 51,
+      "failures_caught": 3,
+      "missed_failures": 6,
+      "model_cost": 108,
+      "inspect_nothing_cost": 90,
+      "inspect_all_cost": 227,
+      "saving_vs_best_simple_policy_pct": -20.0
+    },
+    {
+      "missed_failure_cost_x": 20,
+      "lots_flagged": 217,
+      "failures_caught": 9,
+      "missed_failures": 0,
+      "model_cost": 208,
+      "inspect_nothing_cost": 180,
+      "inspect_all_cost": 227,
+      "saving_vs_best_simple_policy_pct": -15.6
+    },
+    {
+      "missed_failure_cost_x": 50,
+      "lots_flagged": 217,
+      "failures_caught": 9,
+      "missed_failures": 0,
+      "model_cost": 208,
+      "inspect_nothing_cost": 450,
+      "inspect_all_cost": 227,
+      "saving_vs_best_simple_policy_pct": 8.4
+    }
+  ],
+  "top_shap_sensors": {
+    "s060": 0.6586,
+    "s034": 0.1994,
+    "s461": 0.1845,
+    "s206": 0.17,
+    "s118": 0.1553,
+    "s131": 0.1478,
+    "s198": 0.1449,
+    "s091": 0.1447
+  }
+}

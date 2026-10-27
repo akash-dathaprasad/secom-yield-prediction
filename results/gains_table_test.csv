@@ -1,0 +1,6 @@
+inspect_top_pct_of_lots,lots_inspected,failures_caught,share_of_failures_caught_pct,lift_vs_random
+5,12,0,0.0,0.0
+10,24,1,11.1,1.11
+20,48,2,22.2,1.11
+30,71,4,44.4,1.48
+50,118,9,100.0,2.0

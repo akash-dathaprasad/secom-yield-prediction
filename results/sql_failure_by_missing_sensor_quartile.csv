@@ -1,0 +1,5 @@
+quartile,min_missing_sensors,max_missing_sensors,lots,fail_rate_pct
+1,4,20,392,6.89
+2,20,24,392,9.18
+3,24,32,392,5.61
+4,32,152,391,4.86

@@ -1,0 +1,5 @@
+missed_failure_cost_x,lots_flagged,failures_caught,missed_failures,model_cost,inspect_nothing_cost,inspect_all_cost,saving_vs_best_simple_policy_pct
+5,0,0,9,45,45,227,0.0
+10,51,3,6,108,90,227,-20.0
+20,217,9,0,208,180,227,-15.6
+50,217,9,0,208,450,227,8.4
